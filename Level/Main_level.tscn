@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c4ys6n1qlfe2r" path="res://Entities/Player.tscn" id="1_eboef"]
 [ext_resource type="Script" path="res://Level/Main_level.gd" id="1_w0pq0"]
+[ext_resource type="PackedScene" uid="uid://bexp71mlo7k2c" path="res://UI/pause_menu.tscn" id="2_l15at"]
 [ext_resource type="PackedScene" uid="uid://co761mlqgr6bn" path="res://Obj/spawn_point.tscn" id="3_sg7cw"]
-[ext_resource type="PackedScene" uid="uid://bexp71mlo7k2c" path="res://Level/pause_menu.tscn" id="3_xc6j1"]
-[ext_resource type="PackedScene" uid="uid://b4daet07lhad1" path="res://Level/ui.tscn" id="4_um6h2"]
+[ext_resource type="PackedScene" uid="uid://b4daet07lhad1" path="res://UI/ui.tscn" id="4_um6h2"]
 
 [node name="Main_level" type="Node2D" groups=["Level"]]
 script = ExtResource("1_w0pq0")
 
-[node name="Pause_menu" parent="." instance=ExtResource("3_xc6j1")]
+[node name="Pause_menu" parent="." instance=ExtResource("2_l15at")]
 
 [node name="UI" parent="." instance=ExtResource("4_um6h2")]
 layer = -1

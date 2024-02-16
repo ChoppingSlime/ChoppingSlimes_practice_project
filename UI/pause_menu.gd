@@ -1,5 +1,4 @@
 extends CanvasLayer
-@export var MainMenu : PackedScene
 
 func _ready() -> void:
 	hide()
