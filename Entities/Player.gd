@@ -11,6 +11,7 @@ var bullet_speed : int = 10
 
 
 func _ready() -> void:
+	$ProgressBar.value = healt
 	get_tree().get_first_node_in_group("UI").ammo_update(ammo)
 
 
@@ -48,10 +49,12 @@ func shoot() -> void:
 func dmg(dameg)-> void :
 	healt = max(healt-dameg, 0)
 	print(healt)
+	$ProgressBar.value = healt
 	if healt == 0: die()
 
 
 func die():
+	get_tree().get_first_node_in_group("quit").pause()
 	queue_free()
 
 

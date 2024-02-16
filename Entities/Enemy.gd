@@ -8,7 +8,9 @@ var healt = 30
 var speed : int = 300
 var damage_to_player = 20
 
-
+func _ready() -> void:
+	$ProgressBar.max_value = healt
+	$ProgressBar.value = healt
 
 func _physics_process(delta: float)  -> void:
 	if not target:
@@ -38,6 +40,7 @@ func drop_ammo() -> void:
 
 func dmg(dmg)-> void :
 	healt = max(healt-dmg, 0)
+	$ProgressBar.value = healt
 	if healt == 0:
 		GameManager.enemy_death_handler()
 		die()
@@ -47,4 +50,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var player = body as Player
 		player.dmg(damage_to_player) 
+		GameManager.enemy_death_handler()
 		die()

@@ -64,4 +64,3 @@ func enemy_death_handler() -> void :
 		get_tree().get_first_node_in_group("UI").enemy_left_update(enemies_remaining)
 		next_wave_handler()
 
-
