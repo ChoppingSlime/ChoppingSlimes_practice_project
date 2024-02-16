@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb41npl5akjpq"]
+
+[ext_resource type="Texture2D" uid="uid://catcrc5em4klg" path="res://icon.svg" id="1_g8ojx"]
+[ext_resource type="Script" path="res://Obj/ammo.gd" id="1_vpi1x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye4me"]
+
+[node name="Ammo" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_vpi1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.533333, 1)
+scale = Vector2(0.31458, 0.31458)
+texture = ExtResource("1_g8ojx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.14134, 2.14134)
+shape = SubResource("CircleShape2D_ye4me")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

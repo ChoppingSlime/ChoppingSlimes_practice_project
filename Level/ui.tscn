@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4daet07lhad1"]
+
+[ext_resource type="Script" path="res://Level/ui.gd" id="1_adkr2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nh60j"]
+font_size = 32
+
+[node name="UI" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_adkr2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203922, 0.329412, 0.462745, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -71.0
+offset_right = 94.0
+offset_bottom = -31.0
+grow_vertical = 0
+scale = Vector2(1.81, 1.81)
+
+[node name="_AMMO_" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " Ammo:"
+
+[node name="ammo_label" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+label_settings = SubResource("LabelSettings_nh60j")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_right = 82.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="_WAVE_" type="Label" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Wave:"
+
+[node name="wave_label" type="Label" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -315.0
+offset_bottom = 67.0
+grow_horizontal = 0
+
+[node name="_Enemy_left" type="Label" parent="ColorRect/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Enemies left:"
+
+[node name="Enemy_left_label" type="Label" parent="ColorRect/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48

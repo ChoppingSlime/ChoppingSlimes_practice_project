@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://h3a62i17wjqk"]
+
+[ext_resource type="Texture2D" uid="uid://catcrc5em4klg" path="res://icon.svg" id="1_5anpg"]
+[ext_resource type="Script" path="res://Entities/Enemy.gd" id="1_sw6q6"]
+[ext_resource type="PackedScene" uid="uid://cb41npl5akjpq" path="res://Obj/ammo.tscn" id="2_swihu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2ltx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsq5v"]
+size = Vector2(123, 126)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_sw6q6")
+AmmoPack = ExtResource("2_swihu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.25098, 1, 1)
+texture = ExtResource("1_5anpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.8182, 5.8182)
+shape = SubResource("RectangleShape2D_k2ltx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_bsq5v")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

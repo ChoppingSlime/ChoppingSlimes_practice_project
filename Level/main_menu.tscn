@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://3vegeborwqgv"]
+
+[ext_resource type="Theme" uid="uid://dhv2b3dip8oc8" path="res://Themes/main_menu.tres" id="1_ns5at"]
+[ext_resource type="Script" path="res://Level/main_menu.gd" id="2_cg75q"]
+[ext_resource type="PackedScene" uid="uid://b25js88ycs6re" path="res://Level/Main_level.tscn" id="3_k2464"]
+[ext_resource type="PackedScene" uid="uid://c5hlce31pg0b0" path="res://Level/debug_level.tscn" id="4_ba3nc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ns5at")
+script = ExtResource("2_cg75q")
+FirstLevel = ExtResource("3_k2464")
+Debuglevel = ExtResource("4_ba3nc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203922, 0.329412, 0.462745, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 5
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonBBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonBBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+text = "Quit"
+
+[node name="ButtonBBox2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonBBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_constants/separation = 5
+
+[node name="DebugLevel" type="Button" parent="MarginContainer/VBoxContainer/ButtonBBox/ButtonBBox2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../../QuitButton")
+focus_neighbor_right = NodePath("../../QuitButton")
+focus_neighbor_bottom = NodePath("../../QuitButton")
+focus_next = NodePath("../../QuitButton")
+focus_previous = NodePath("../../QuitButton")
+text = "Debug level"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBBox/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBBox/ButtonBBox2/DebugLevel" to="." method="_on_debug_level_pressed"]

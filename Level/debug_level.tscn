@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5hlce31pg0b0"]
+
+[ext_resource type="PackedScene" uid="uid://c4ys6n1qlfe2r" path="res://Entities/Player.tscn" id="1_6fl1c"]
+[ext_resource type="PackedScene" uid="uid://b4daet07lhad1" path="res://Level/ui.tscn" id="2_ob6tx"]
+[ext_resource type="PackedScene" uid="uid://tdyqmiviik7p" path="res://Entities/enemy_shooter.tscn" id="3_h283q"]
+
+[node name="DebugLevel" type="Node2D" groups=["Level"]]
+
+[node name="Player" parent="." instance=ExtResource("1_6fl1c")]
+position = Vector2(109, 111)
+
+[node name="UI" parent="." instance=ExtResource("2_ob6tx")]
+layer = -1
+
+[node name="ColorRect" parent="UI" index="0"]
+color = Color(0.176471, 0.32549, 0.254902, 1)
+
+[node name="_WAVE_" parent="UI/ColorRect/HBoxContainer2" index="0"]
+text = "DEBUG LEVEL. WAVE:"
+
+[node name="Enemy_shooter" parent="." instance=ExtResource("3_h283q")]
+position = Vector2(1415, 563)
+
+[editable path="UI"]

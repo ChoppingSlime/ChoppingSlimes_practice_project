@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://cbmk1s7dwnot1"
+path="res://.godot/imported/Early GameBoy.ttf-0e6f3b222f26b70fde6e606c55f98313.fontdata"
+
+[deps]
+
+source_file="res://Themes/Early GameBoy.ttf"
+dest_files=["res://.godot/imported/Early GameBoy.ttf-0e6f3b222f26b70fde6e606c55f98313.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
