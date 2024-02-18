@@ -9,10 +9,11 @@ var speed : int = 300
 var damage_to_player = 20
 
 func _ready() -> void:
-	$ProgressBar.max_value = healt
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.max_value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 
 func _physics_process(delta: float)  -> void:
+	fix_ProgressBar_Rotation()
 	if not target:
 		target = get_tree().get_first_node_in_group("player")
 	else:
@@ -40,7 +41,7 @@ func drop_ammo() -> void:
 
 func dmg(dmg)-> void :
 	healt = max(healt-dmg, 0)
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 	if healt == 0:
 		GameManager.enemy_death_handler()
 		die()
@@ -52,3 +53,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player.dmg(damage_to_player) 
 		GameManager.enemy_death_handler()
 		die()
+
+func fix_ProgressBar_Rotation() -> void:
+	$ProgressBar_anchor.set_rotation_degrees(-self.get_rotation_degrees())

@@ -11,7 +11,7 @@ var bullet_speed : int = 10
 
 
 func _ready() -> void:
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 	get_tree().get_first_node_in_group("UI").ammo_update(ammo)
 
 
@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"): shoot()
 	if Input.is_action_just_pressed("Esc_menu"): 
 		get_tree().get_first_node_in_group("pause").pause()
+	fix_ProgressBar_Rotation()
 
 
 
@@ -49,7 +50,7 @@ func shoot() -> void:
 func dmg(dameg)-> void :
 	healt = max(healt-dameg, 0)
 	print(healt)
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 	if healt == 0: die()
 
 
@@ -64,5 +65,6 @@ func add_ammo(plus_ammo) -> void :
 	Ui_ref.ammo_update(ammo)
 
 
-
+func fix_ProgressBar_Rotation() -> void:
+	$ProgressBar_anchor.set_rotation_degrees(-self.get_rotation_degrees())
 

@@ -16,8 +16,8 @@ var bullet_speed : int = 10
 
 
 func _ready() -> void:
-	$ProgressBar.max_value = healt
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.max_value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 	shooting_t_setup()
 
 func shooting_t_setup() -> void :
@@ -53,7 +53,7 @@ func chase_player() -> void:
 
 func dmg(dmg)-> void :
 	healt = max(healt-dmg, 0)
-	$ProgressBar.value = healt
+	$ProgressBar_anchor/ProgressBar.value = healt
 	if healt == 0:
 		GameManager.enemy_death_handler()
 		die()
@@ -72,8 +72,13 @@ func drop_ammo() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	fix_ProgressBar_Rotation()
 	if body is Player:
 		var player = body as Player
 		player.dmg(damage_to_player) 
 		GameManager.enemy_death_handler()
 		die()
+
+
+func fix_ProgressBar_Rotation() -> void:
+	$ProgressBar_anchor.set_rotation_degrees(-self.get_rotation_degrees())
