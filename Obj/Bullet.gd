@@ -6,7 +6,6 @@ var bullet_speed : int = 10
 var bullet_dmg : int = 30
 var target : int = 1
 
-
 func _physics_process(delta: float) -> void:
 	position += transform.x * bullet_speed
 
@@ -47,3 +46,5 @@ func _on_body_entered(body: Node2D) -> void:
 			var player = body as Player
 			player.dmg(bullet_dmg)
 			die()
+
+

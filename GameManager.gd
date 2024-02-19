@@ -1,7 +1,7 @@
 extends Node
 
-@onready var enemy_scene = load("res://Entities/Enemy.tscn")
-@onready var enemy_shooter_scene = load("res://Entities/enemy_shooter.tscn")
+@onready var enemy_scene = load("res://Entities/Enemies/Enemy.tscn")
+@onready var enemy_shooter_scene = load("res://Entities/Enemies/enemy_shooter.tscn")
 var wave : int = 1
 var enemies_remaining : int = 2
 var spawn_count : int = 0
