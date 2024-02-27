@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5hlce31pg0b0"]
+[gd_scene load_steps=6 format=3 uid="uid://c5hlce31pg0b0"]
 
 [ext_resource type="PackedScene" uid="uid://c4ys6n1qlfe2r" path="res://Entities/Player/Player.tscn" id="1_6fl1c"]
 [ext_resource type="PackedScene" uid="uid://b4daet07lhad1" path="res://UI/ui.tscn" id="2_ob6tx"]
 [ext_resource type="PackedScene" uid="uid://csihiaugmv3my" path="res://UI/Lost_menu.tscn" id="4_nqsa0"]
 [ext_resource type="PackedScene" uid="uid://bexp71mlo7k2c" path="res://UI/pause_menu.tscn" id="5_8jihk"]
+[ext_resource type="PackedScene" uid="uid://tdyqmiviik7p" path="res://Entities/Enemies/enemy_shooter.tscn" id="5_abc0v"]
 
 [node name="DebugLevel" type="Node2D" groups=["Level"]]
 
@@ -22,5 +23,8 @@ text = "DEBUG LEVEL!!     Wave:"
 [node name="Lost_menu" parent="." instance=ExtResource("4_nqsa0")]
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_8jihk")]
+
+[node name="Enemy_shooter" parent="." instance=ExtResource("5_abc0v")]
+position = Vector2(649, 530)
 
 [editable path="UI"]

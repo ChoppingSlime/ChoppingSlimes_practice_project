@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4ys6n1qlfe2r"]
+[gd_scene load_steps=8 format=3 uid="uid://c4ys6n1qlfe2r"]
 
 [ext_resource type="Texture2D" uid="uid://catcrc5em4klg" path="res://icon.svg" id="1_i7lbn"]
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_ltxyg"]
+[ext_resource type="Script" path="res://HealthComponent.gd" id="2_7cq37"]
 [ext_resource type="PackedScene" uid="uid://kahke7himncg" path="res://Obj/Bullet.tscn" id="2_iydxx"]
-[ext_resource type="Theme" uid="uid://dhv2b3dip8oc8" path="res://Data/Themes/main_menu.tres" id="3_ju4vu"]
+[ext_resource type="Script" path="res://HealthBar.gd" id="3_b2j2o"]
+[ext_resource type="Script" path="res://Components/Shoot_Component.gd" id="4_00vh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hink7"]
 size = Vector2(20, 35.1675)
@@ -12,7 +14,28 @@ size = Vector2(20, 35.1675)
 z_index = 100
 collision_mask = 22
 script = ExtResource("1_ltxyg")
-bullet = ExtResource("2_iydxx")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_7cq37")
+health = 100
+
+[node name="HealthBarComponent" type="Node2D" parent="."]
+script = ExtResource("3_b2j2o")
+
+[node name="HealthBar" type="ProgressBar" parent="HealthBarComponent"]
+offset_top = -96.0
+offset_right = 4.0
+offset_bottom = -69.0
+
+[node name="ShootComponent" type="Node2D" parent="."]
+script = ExtResource("4_00vh8")
+bullet_scene = ExtResource("2_iydxx")
+ammo = 100
+bullet_dmg = 10
+bullet_speed = 10
+
+[node name="BulletSpawnpoint" type="Marker2D" parent="ShootComponent"]
+position = Vector2(69, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -21,17 +44,3 @@ texture = ExtResource("1_i7lbn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.94489, 2.87494)
 shape = SubResource("RectangleShape2D_hink7")
-
-[node name="Spawn" type="Marker2D" parent="."]
-position = Vector2(105, -9)
-
-[node name="ProgressBar_anchor" type="Marker2D" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="ProgressBar_anchor"]
-offset_left = -2.0
-offset_top = -131.0
-offset_right = 2.0
-offset_bottom = -83.0
-size_flags_horizontal = 4
-theme = ExtResource("3_ju4vu")
-metadata/_edit_use_anchors_ = true

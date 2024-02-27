@@ -32,7 +32,6 @@ func stat_setup(dmg : int, spd : int) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if target == 1:
 		if body is Enemy : 
 			var enemy = body as Enemy
 			enemy.dmg(bullet_dmg)
@@ -41,7 +40,6 @@ func _on_body_entered(body: Node2D) -> void:
 			var enemy = body as Enemy_shooter
 			enemy.dmg(bullet_dmg)
 			die()
-	if target == 0:
 		if body is Player:
 			var player = body as Player
 			player.dmg(bullet_dmg)

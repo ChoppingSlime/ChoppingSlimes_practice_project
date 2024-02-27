@@ -13,6 +13,7 @@ var enemy_shooter_chanche : float = 0.0
 var enemy_instance
 var current_scene 
 
+
 func start_game() -> void:
 	level = get_tree().get_first_node_in_group("Level")
 	spawn_point = level.get_tree().get_nodes_in_group("Spawnpoint")

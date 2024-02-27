@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://h3a62i17wjqk"]
+[gd_scene load_steps=8 format=3 uid="uid://h3a62i17wjqk"]
 
 [ext_resource type="Texture2D" uid="uid://catcrc5em4klg" path="res://icon.svg" id="1_5anpg"]
 [ext_resource type="Script" path="res://Entities/Enemies/Enemy.gd" id="1_sw6q6"]
 [ext_resource type="PackedScene" uid="uid://cb41npl5akjpq" path="res://Obj/Ammo_pack.tscn" id="2_swihu"]
-[ext_resource type="Theme" uid="uid://dhv2b3dip8oc8" path="res://Data/Themes/main_menu.tres" id="4_ci8eh"]
+[ext_resource type="Script" path="res://HealthComponent.gd" id="4_27y3n"]
+[ext_resource type="Script" path="res://HealthBar.gd" id="5_6sogk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2ltx"]
 
@@ -30,17 +31,18 @@ collision_layer = 2
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_bsq5v")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="HealthComponent" type="Node2D" parent="."]
+position = Vector2(-29.5028, -67.2449)
+script = ExtResource("4_27y3n")
+health = 40
 
-[node name="ProgressBar_anchor" type="Marker2D" parent="."]
+[node name="HealthBarComponent" type="Node2D" parent="."]
+position = Vector2(-29.5028, -67.2449)
+script = ExtResource("5_6sogk")
 
-[node name="ProgressBar" type="ProgressBar" parent="ProgressBar_anchor"]
-offset_left = -2.0
-offset_top = -131.0
-offset_right = 2.0
-offset_bottom = -83.0
-size_flags_horizontal = 4
-theme = ExtResource("4_ci8eh")
-metadata/_edit_use_anchors_ = true
+[node name="HealthBar" type="ProgressBar" parent="HealthBarComponent"]
+offset_top = -155.0
+offset_right = 4.0
+offset_bottom = -128.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
